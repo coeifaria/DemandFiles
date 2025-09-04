@@ -1,0 +1,27 @@
+{
+    "id": "ADEC879D",
+    "path": "~/CoE/CoreFiles/github/DemandFiles/xls_to_xlsx.R",
+    "project_path": "xls_to_xlsx.R",
+    "type": "r_source",
+    "hash": "378582222",
+    "contents": "",
+    "dirty": false,
+    "created": 1757012205145.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "tempName": "Untitled2",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "2,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1757019495,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1757019495048,
+    "read_only": false,
+    "read_only_alternatives": []
+}
