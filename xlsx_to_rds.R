@@ -2,7 +2,7 @@ library(tidyverse)
 library(readxl)
 
 demand_hires <- list.files(
-  path = "data",  # Assuming the files are in a "data" folder
+  path = "data_September2025",  # Assuming the files are in a "data" folder
   pattern = "^Occupation.*?(NCV|SCV|CVML|California).*\\.xlsx$",
   full.names = T,
   ignore.case = TRUE
@@ -17,103 +17,28 @@ find_problematic_columns <- function(df, pattern) {
   return(na.omit(names(df)[cols_with_issues]))
 }
 
-# Step 2: Fix "<10" values
-fix_under10 <- function(df, col_name) {
-  row <- which(str_detect(df[[col_name]], "<10"))
-
-  # Replace "<10" with "0"
-  df[row, col_name] <- "0"
-
-  # Convert the column to numeric
-  df[[col_name]] <- as.numeric(df[[col_name]]) %>% round()
-
-  # Extrapolate missing values
-  df[[col_name]][row] <- last(df[[col_name]]) - sum(df[[col_name]][1:(nrow(df) - 1)])
-
-  return(df)
-}
-
-# Step 3: Handle "Insf. Data"
-fix_insf_data <- function(df, col_name, col_index) {
-  rows <- which(str_detect(df[[col_name]], "Insf. Data"))
-
-  for (row in rows) {
-    if (col_index == 5) {
-      # Calculate "2023 - 2028 Change"
-      df[row, col_name] <- as.character(
-        as.numeric(df[[4]][row]) - as.numeric(df[[3]][row])  # 2028 Jobs...4 - 2023 Jobs...3
-      )
-    } else if (col_index == 6) {
-      # Calculate "2023 - 2028 % Change"
-      df[row, col_name] <- as.character(
-        round((as.numeric(df[[4]][row]) - as.numeric(df[[3]][row])) / as.numeric(df[[3]][row]), 3)
-      )
-    } else {
-      # Replace "Insf. Data" with NA for other columns
-      df[row, col_name] <- NA
+fix_columns <- function(df){
+  removeables <- c("<10", "Insf. Data")
+  for (remove_me in removeables){
+    fix_us <- find_problematic_columns(df, remove_me)
+    for (columns in fix_us){
+      new_column <- df[[columns]] %>%
+        na_if(remove_me) %>%
+        as.numeric() %>%
+        replace_na(0)
+      if(remove_me=="<10"){
+        new_column <- round(new_column)
+      } else {
+        new_column <- round(new_column, 2)
+      }
+      df[[columns]] <- new_column
     }
   }
-
-  # Convert column to numeric
-  df[[col_name]] <- suppressWarnings(as.numeric(df[[col_name]]))
   return(df)
 }
-
-# Step 4: Main processing function
-process_dataframe <- function(df) {
-  # Identify columns with "<10"
-  columns_with_under10 <- find_problematic_columns(df, "<10")
-
-  # Fix "<10" values
-  for (col in columns_with_under10) {
-    df <- fix_under10(df, col)
-  }
-
-  # Identify columns with "Insf. Data"
-  columns_with_insf_data <- find_problematic_columns(df, "Insf. Data")
-
-  # Fix "Insf. Data"
-  for (col_name in columns_with_insf_data) {
-    col_index <- which(names(df) == col_name)
-    df <- fix_insf_data(df, col_name, col_index)
-  }
-
-  return(df)
-}
-
-
-# Step 5: Wrapper function for cleaning
-demand_func <- function(df) {
-
-  df <- process_dataframe(df)
-  df <- df %>%
-    mutate(
-      across(everything(), ~replace_na(., 0))
-    )
-  return(df)
-}
-
-not_in_selected_region <- function(data){
-  if(any(data$SOC=="* Your selected institution is not in the selected region.", na.rm = T)){
-    data <- data[-which(data$SOC=="* Your selected institution is not in the selected region."),]
-    return(data)
-  } else {
-    return(data)
-  }
-}
-
-remove_added_rows <- function(table) {
-  if (sum(tail(is.na(pull(table, 1)), 2)) == 2){
-    fixed <- table[1:(nrow(table)-2),]
-    return(fixed)
-  } else {
-    return(table)
-  }
-}
-demand_hires
 
 demand_func_df <- function(region) {
-  read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Occs") %>% na.omit() %>% suppressMessages() %>% demand_func() %>% not_in_selected_region() %>% remove_added_rows()
+  read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Occs") %>% na.omit() %>% fix_columns() %>% suppressMessages() #%>% process_dataframe() #%>% demand_func() #%>% not_in_selected_region() #%>% remove_added_rows()
 }
 
 date_match <- paste0(lubridate::month(1:12, label = T, abbr = F), " ", year(Sys.Date()))
