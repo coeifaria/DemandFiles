@@ -2,7 +2,7 @@ library(tidyverse)
 library(readxl)
 
 demand_hires <- list.files(
-  path = "data_September2025",  # Assuming the files are in a "data" folder
+  path = "data",  # Assuming the files are in a "data" folder
   pattern = "^Occupation.*?(NCV|SCV|CVML|California).*\\.xlsx$",
   full.names = T,
   ignore.case = TRUE
