@@ -1,0 +1,387 @@
+code,program,vocational,page
+0101.00,"Agriculture Technology and Sciences, General Economic and business principles used in the organization, operation, and management of farm and agricultural businesses  ",TRUE,7
+0102.00,Animal Science  ,TRUE,7
+0102.10,Veterinary Technician (Licensed),TRUE,7
+0102.20,Artificial Inseminator (Licensed) ,TRUE,7
+0102.30,Dairy Science ,TRUE,7
+0102.40,Equine Science ,TRUE,7
+0103.00,Plant Science  ,TRUE,7
+0103.10,Agricultural Pest Control Advisor and Operator (Licensed)  ,TRUE,7
+0104.00,"Viticulture, Enology, and Wine Business  ",TRUE,7
+0109.00,Horticulture ,TRUE,7
+0109.10,Landscape Design and Maintenance ,TRUE,8
+0109.20,Floriculture/Floristry ,TRUE,8
+0109.30,Nursery Technology  ,TRUE,8
+0109.40,Turfgrass Technology ,TRUE,8
+0112.00,"Agriculture Business, Sales, and Service  ",TRUE,8
+0113.00,Food Processing and Related Technologies  ,TRUE,8
+0114.00,Forestry  ,TRUE,8
+0115.00,Natural Resources  ,TRUE,8
+0115.10,Parks and Outdoor Recreation  ,TRUE,8
+0115.20,Wildlife and Fisheries  ,TRUE,8
+0116.00,Agricultural Power Equipment Technology  ,TRUE,8
+0199.00,Other Agriculture and Natural Resources  ,TRUE,8
+0201.00,Architecture and Architectural Technology ,TRUE,10
+0201.10,Landscape Architecture (transfer)  ,FALSE,10
+0299.00,Other Architecture and Environmental Design  ,TRUE,10
+0301.00,Environmental Science  ,FALSE,11
+0302.00,Environmental Studies  ,FALSE,11
+0303.00,Environmental Technology  ,TRUE,11
+0399.00,"Environmental Sciences and Technologies, Other  ",FALSE,11
+0401.00,"Biology, General ",FALSE,11
+0402.00,"Botany, General  ",FALSE,11
+0403.00,Microbiology  ,FALSE,11
+0407.00,"Zoology, General ",FALSE,11
+0408.00,Natural History ,FALSE,11
+0410.00,Anatomy and Physiology ,FALSE,11
+0430.00,Biotechnology and Biomedical Technology  ,TRUE,11
+0499.00,Other Biological Sciences Specify ,FALSE,11
+0501.00,"Business and Commerce, General  ",TRUE,12
+0502.00,Accounting  ,TRUE,12
+0502.10,Tax Studies  ,TRUE,12
+0504.00,Banking and Finance  ,TRUE,12
+0505.00,Business Administration  ,TRUE,12
+0506.00,Business Management  ,TRUE,12
+0506.30,Management Development and Supervision  ,TRUE,12
+0509.10,Advertising  ,TRUE,12
+0509.20,Purchasing ,TRUE,12
+0509.40,Sales and Salesmanship  ,TRUE,12
+0509.60,Display  ,TRUE,12
+0509.70,E-Commerce (business emphasis)  ,TRUE,12
+0510.00,Logistics and Materials Transportation  ,TRUE,13
+0511.00,Real Estate ,TRUE,13
+0051.11,Escrow ,TRUE,13
+ 0051.20,Insurance ,TRUE,13
+0051.40,Office Technology/Office Computer Applications  ,TRUE,13
+0514.10,Legal Office Technology ,TRUE,13
+0514.20,Medical Office Technology  ,TRUE,13
+0514.30,Court Reporting  ,TRUE,13
+0516.00,Labor and Industrial Relations  ,TRUE,13
+ 0518.00,Customer Service  ,TRUE,14
+ 0599.00,Other Business and Management  ,TRUE,14
+0601.00,"Media and Communications, General  ",FALSE,15
+0602.00,Journalism  ,TRUE,15
+0604.00,Radio and Television ,TRUE,15
+0604.10,Radio  ,TRUE,15
+0604.20,Television (including combined TV/film/video)  ,TRUE,15
+0604.30,Broadcast Journalism  ,TRUE,15
+0606.00,Public Relations  ,TRUE,15
+0607.00,Technical Communication  ,TRUE,15
+0610.00,Mass Communications  ,TRUE,16
+0612.00,Film Studies (including combined film/video) ,FALSE,16
+0612. 1,Film History and Criticism  ,FALSE,16
+0612.20,Film Production  ,TRUE,16
+0614.00,Digital Media  ,TRUE,16
+0614.10,Multimedia  ,TRUE,16
+ 061.42,Electronic Game Design ,TRUE,16
+0614.30,Website Design and Development  ,TRUE,16
+ 061.44,Animation ,TRUE,16
+ 061.45,Desktop Publishing  ,TRUE,16
+ 061.46,Computer Graphics and Digital Imagery ,TRUE,17
+0699.00,Other Media and Communications  ,TRUE,17
+0701.00,"Information Technology, General  ",TRUE,17
+0702.00,Computer Information Systems  ,TRUE,17
+0702.10,Software Applications  ,TRUE,17
+0707.00,Computer Software Development  ,TRUE,17
+0707.10,Computer Programming  ,TRUE,17
+0707.20,Database Design and Administration  ,TRUE,18
+0707.30,Computer Systems Analysis  ,TRUE,19
+0708.00,Computer Infrastructure and Support  ,TRUE,19
+0708.10,Computer Networking ,TRUE,19
+0708.20,Computer Support ,TRUE,19
+0709.00,World Wide Web Administration  ,TRUE,19
+0709.10,E-Commerce (technology emphasis) ,TRUE,19
+0799.00,Other Information Technology  ,TRUE,19
+0801.00,"Education, General (Pre-Professional) (Transfer)  ",FALSE,19
+0802.00,Educational Aide (Teacher Assistant)  ,TRUE,19
+0802.10,"Educational Aide (Teacher Assistant), Bilingual  ",TRUE,19
+0809.00,Special Education  ,TRUE,19
+0835.00,Physical Education  ,FALSE,19
+0835.10,Physical Fitness and Body Movement  ,FALSE,19
+0835.20,Fitness Trainer  ,TRUE,19
+8355.00,Intercollegiate Athletics ,FALSE,19
+0835.70,Aquatics and Lifesaving ,TRUE,20
+0835.80,Adapted Physical Education  ,FALSE,20
+0836.00,Recreation  ,FALSE,20
+0836.10,Recreation Assistant  ,TRUE,20
+0837.00,Health Education ,FALSE,20
+0850.00,Sign Language  ,FALSE,20
+0850.10,Sign Language Interpreting ,TRUE,20
+0860.00,Educational Technology ,TRUE,20
+0899.00,Other Education  ,TRUE,20
+0901.00,"Engineering, General (requires Calculus) (Transfer)  ",FALSE,21
+0924.00,"Engineering Technology, General (requires Trigonometry)  ",TRUE,21
+0934.00,Electronics and Electric Technology ,TRUE,21
+0934.10,Computer Electronics  ,TRUE,21
+0934.20,Industrial Electronics ,TRUE,21
+0934.30,Telecommunications Technology  ,TRUE,21
+0934.40,Electrical Systems and Power Transmission  ,FALSE,21
+0934.60,Biomedical Instrumentation  ,TRUE,22
+0934.70,Electron Microscopy  ,TRUE,22
+0934.80,Laser and Optical Technology  ,TRUE,22
+0935.00,Electro-Mechanical Technology ,TRUE,22
+0935.10,Appliance Repair  ,FALSE,22
+0936.00,Printing and Lithography  ,TRUE,22
+0943.00,Instrumentation Technology  ,TRUE,22
+0943.30,Vacuum Technology  ,FALSE,22
+0945.00,Industrial Systems Technology and Maintenance  ,TRUE,22
+0946.00,Environmental Control Technology (HVAC)  ,TRUE,23
+0946.10,Energy Systems Technology  ,TRUE,23
+0947.00,Diesel Technology  ,TRUE,23
+0947.20,Heavy Equipment Maintenance  ,FALSE,23
+0947.30,Heavy Equipment Operation ,FALSE,23
+0947.40,Railroad and Light Rail Operations ,FALSE,23
+0947.50,Truck and Bus Driving  ,FALSE,23
+0948.00,Automotive Technology  ,TRUE,23
+0948.30,"Motorcycle, Outboard, and Small Engine Repair  ",FALSE,23
+0948.40,"Alternative Fuels and Advanced Transportation Technology Conversion to, installation of, and maintenance of electric vehicles, liquefied petroleum gas, compressed natural gas, hybrid fuel technologies, and related systems  ",TRUE,23
+0948.50,"Recreational Vehicle Service Maintenance of hydraulic, electrical, air conditioning and other systems in recreational vehicles  ",TRUE,24
+0949.00,Automotive Collision Repair  ,TRUE,24
+0949.10,Upholstery Repair–Automotive ,FALSE,24
+0950.00,Aeronautical and Aviation Technology  ,TRUE,24
+0950.10,Aviation Airframe Mechanics  ,FALSE,24
+0950.20,Aviation Powerplant Mechanics  ,FALSE,24
+0950.40,Aircraft Electronics (Avionics) ,FALSE,24
+0950.50,Aircraft Fabrication  ,FALSE,24
+0952.00,Construction Crafts Technology  ,TRUE,24
+0952.10,Carpentry,FALSE,24
+0952.20,Electrical  ,FALSE,25
+0952.30,"Plumbing, Pipefitting, and Steamfitting  ",FALSE,25
+0952.40,Glazing ,FALSE,25
+0952.50,Mill and Cabinet Work  ,FALSE,25
+0952.60,"Masonry, Tile, Cement, and Lath and Plaster  ",FALSE,25
+0952.70,"Painting, Decorating, and Flooring ",FALSE,25
+0952.80,Drywall and Insulation  ,FALSE,25
+0952.90,Roofing  ,TRUE,25
+0953.00,Drafting Technology  ,TRUE,25
+0953.10,Architectural Drafting  ,TRUE,25
+0953.20,Civil Drafting  ,TRUE,26
+0953.40,Mechanical Drafting  ,TRUE,26
+0954.00,Chemical Technology  ,TRUE,26
+0954.20,Plastics and Composites ,TRUE,26
+0954.30,Petroleum Technology  ,TRUE,26
+0955.00,Laboratory Science Technology  ,TRUE,26
+0956.00,Manufacturing and Industrial Technology  ,TRUE,26
+0956.30,Machining and Machine Tools  ,TRUE,27
+0956.40,Sheet Metal and Structural Metal ,TRUE,27
+0956.50,Welding Technology  ,TRUE,27
+0956.70,Industrial and Occupational Safety and Health  ,TRUE,27
+0956.80,Industrial Quality Control  ,TRUE,27
+0957.00,Civil and Construction Management Technology  ,TRUE,27
+0957.20,Construction Inspection  ,TRUE,27
+0957.30,Surveying ,TRUE,27
+0958.00,Water and Wastewater Technology  ,TRUE,28
+0959.00,Marine Technology  ,TRUE,28
+0959.10,Diving and Underwater Safety  ,TRUE,28
+0961.00,Optics  ,TRUE,28
+ 0962.00,Musical Instrument Repair  ,TRUE,28
+0999.00,Other Engineering and Related Industrial Technologies  ,TRUE,28
+1001.00,"Fine Arts, General  ",FALSE,29
+1002.00,"Art (Painting, Drawing, and Sculpture) ",FALSE,29
+1005.00,Commercial Music  ,TRUE,29
+1006.00,Technical Theater  ,TRUE,29
+1007.00,Dramatic Arts  ,FALSE,29
+1008.00,Dance  ,FALSE,29
+1008.10,Commercial Dance ,TRUE,29
+1009.00,Applied Design  ,TRUE,29
+1009.10,Jewelry ,FALSE,30
+1011.00,Photography  ,FALSE,30
+1012.00,Applied Photography ,TRUE,30
+1013.00,Commercial Art  ,TRUE,30
+1030.00,Graphic Art and Design ,TRUE,30
+1099.00,Other Fine and Applied Arts  ,TRUE,30
+1101.00,"Foreign Languages, General  ",FALSE,31
+1102.00,French  ,FALSE,31
+1103.00,German  ,FALSE,31
+1104.00,Italian  ,FALSE,31
+1105.00,Spanish  ,FALSE,31
+1106.00,Russian  ,FALSE,31
+1107.00,Chinese  ,FALSE,31
+1108.00,Japanese  ,FALSE,31
+1109.00,Latin  ,FALSE,31
+1110.00,Greek ,FALSE,31
+1111.00,Hebrew  ,FALSE,32
+1112.00,Arabic ,FALSE,32
+1116.00,African Languages (Non-Semitic)  ,FALSE,32
+1117.00,"Asian, South Asian, and Pacific Islands (Chinese and Japanese excluded)  ",FALSE,32
+1117.10,Filipino (Tagalog)  ,FALSE,32
+1199.00,Other Foreign Languages ,FALSE,32
+1201.00,"Health Occupations, General  ",TRUE,33
+1202.00,Hospital and Health Care Administration ,TRUE,33
+1205.00,Medical Laboratory Technology  ,TRUE,33
+1205.10,Phlebotomy  ,TRUE,33
+1206.00,Physicians Assistant  ,TRUE,33
+1208.00,Medical Assisting  ,TRUE,33
+1208.10,Clinical Medical Assisting  ,TRUE,33
+1208.20,Administrative Medical Assisting  ,TRUE,33
+1208.30,Health Facility Unit Coordinator ,TRUE,34
+1209.00,Hospital Central Service Technician  ,TRUE,34
+1210.00,Respiratory Care/Therapy  ,TRUE,34
+1211.00,Polysomnography ,TRUE,34
+1212.00,Electro-Neurodiagnostic Technology  ,TRUE,34
+1213.00,Cardiovascular Technician  ,TRUE,34
+1214.00,Orthopedic Assistant  ,TRUE,34
+1215.00,Electrocardiography  ,TRUE,34
+1217.00,Surgical Technician  ,TRUE,34
+1218.00,Occupational Therapy Technology  ,TRUE,34
+1219.00,Optical Technology ,TRUE,35
+1220.00,Speech-Language Pathology and Audiology ,TRUE,35
+1221.00,Pharmacy Technology  ,TRUE,35
+1222.00,Physical Therapist Assistant ,TRUE,35
+1223.00,Health Information Technology  ,TRUE,35
+1223.10,Health Information Coding ,TRUE,35
+1224.00,School Health Clerk  ,TRUE,35
+1225.00,Radiologic Technology  ,TRUE,35
+1226.00,Radiation Therapy Technician  ,TRUE,35
+1227.00,Diagnostic Medical Sonography  ,TRUE,35
+1228.00,Athletic Training and Sports Medicine ,TRUE,36
+1230.00,Nursing ,TRUE,36
+1230.10,Registered Nursing  ,TRUE,36
+1230.20,Licensed Vocational Nursing ,TRUE,36
+1230.30,Certified Nurse Assistant ,TRUE,36
+1230.80,Home Health Aide  ,TRUE,36
+1239.00,Psychiatric Technician ,TRUE,36
+1240.00,Dental Occupations  ,TRUE,36
+1240.10,Dental Assistant  ,TRUE,36
+1240.20,Dental Hygienist  ,TRUE,36
+1240.30,Dental Laboratory Technician  ,TRUE,37
+1250.00,Emergency Medical Services  ,TRUE,37
+1251.00,Paramedic ,TRUE,37
+1255.00,Mortuary Science  ,TRUE,37
+1260.00,"Health Professions, Transfer Core Curriculum ",TRUE,37
+1261.00,Community Health Care Worker ,TRUE,37
+1262.00,Massage Therapy  ,TRUE,37
+1270.00,Kinesiology  ,FALSE,37
+1299.00,Other Health Occupations ,TRUE,37
+1301.00,"Family and Consumer Sciences, General  ",FALSE,39
+1301.10,Consumer Services  ,TRUE,39
+1302.00,Interior Design and Merchandising  ,TRUE,39
+1303.00,Fashion ,TRUE,39
+1303.10,Fashion Design ,TRUE,39
+1303.20,Fashion Merchandising ,TRUE,39
+1303.30,Fashion Production ,TRUE,40
+1305.00,Child Development/Early Care and Education ,TRUE,40
+1305.20,Children with Special Needs ,TRUE,40
+1305.40,Preschool Age Children,TRUE,40
+1305.50,The School Age Child ,TRUE,40
+1305.60,Parenting and Family Education ,TRUE,40
+1305.70,Foster and Kinship Care ,TRUE,40
+1305.80,Child Development Administration and Management  ,TRUE,40
+1305.90,Infants and Toddlers ,TRUE,40
+1306.00,"Nutrition, Foods, and Culinary Arts ",TRUE,40
+1306.20,Dietetic Services and Management  ,TRUE,42
+1306.30,Culinary Arts ,TRUE,42
+1306.60,Dietetic Technology ,TRUE,42
+1307.00,Hospitality ,TRUE,42
+1307.10,Restaurant and Food Services and Management  ,TRUE,42
+1307.20,Lodging Management ,TRUE,42
+1307.30,Resort and Club Management  ,TRUE,42
+1308.00,Family Studies  ,TRUE,42
+1309.00,Gerontology  ,TRUE,43
+1401.00,"Law, General ",FALSE,44
+0140.20,Paralegal  ,TRUE,44
+1499.00,Other Law  ,FALSE,44
+1501.00,English  ,FALSE,45
+1501.10,Linguistics  ,FALSE,45
+1502.00,Language Arts  ,FALSE,45
+1503.00,Comparative Literature ,FALSE,45
+1504.00,Classics  ,FALSE,45
+1506.00,Speech Communication ,FALSE,45
+1507.00,Creative Writing  ,FALSE,45
+1509.00,Philosophy  ,FALSE,45
+1510.00,Religious Studies (Theological professions excluded)  ,FALSE,45
+1520.00,Reading  ,FALSE,46
+1599.00,Other Humanities  ,FALSE,46
+1601.00,"Library Science, General  ",FALSE,47
+0160.20,Library Technician (Aide)  ,TRUE,47
+1699.00,Other Library Science ,FALSE,47
+1701.00,"Mathematics, General  ",FALSE,49
+1702.00,Mathematics Skills  ,FALSE,49
+1799.00,Other Mathematics ,FALSE,49
+1801.00,Military Science  ,FALSE,50
+1899.00,Other Military Studies  ,FALSE,50
+1901.00,"Physical Sciences, General ",FALSE,51
+1902.00,"Physics, General  ",FALSE,51
+1905.00,"Chemistry, General ",FALSE,51
+1911.00,Astronomy  ,FALSE,51
+1914.00,Geology  ,FALSE,51
+1919.00,Oceanography  ,FALSE,51
+0192.00,Ocean Technology ,TRUE,51
+1930.00,Earth Science  ,FALSE,52
+1999.00,Other Physical Sciences  ,FALSE,52
+2001.00,"Psychology, General ",FALSE,53
+2003.00,Behavioral Science  ,FALSE,53
+2099.00,Other Psychology  ,FALSE,53
+2102.00,Public Administration ,TRUE,54
+2102.10,Public Works,TRUE,54
+2104.00,Human Services  ,TRUE,54
+2104.40,Alcohol and Controlled Substances ,TRUE,54
+2104.50,Disability Services ,TRUE,54
+2105.00,Administration of Justice  ,TRUE,54
+2105.10,Corrections ,TRUE,54
+2105.20,Probation and Parole ,TRUE,54
+2105.30,Industrial and Transportation Security ,TRUE,54
+2105.40,"Forensics, Evidence, and Investigation  ",TRUE,55
+2105.50,Police Academy ,TRUE,55
+2133.00,Fire Technology  ,TRUE,55
+2133.10,Wildland Fire Technology  ,TRUE,55
+2133.50,Fire Academy ,TRUE,55
+2140.00,Legal and Community Interpretation  ,TRUE,55
+2199.00,Other Public and Protective Services  ,TRUE,55
+2201.00,"Social Sciences, General  ",FALSE,56
+2201.10,Women's Studies ,FALSE,56
+2201.20,American Studies,FALSE,56
+2201.30,Social Justice Studies: General  ,FALSE,56
+2201.40,Social Justice Studies: LGTBQ  ,FALSE,56
+2201.50,Social Justice Studies: Ethnic Studies  ,FALSE,56
+2201.60,Social Justice Studies: Chicano Studies  ,FALSE,56
+2201.70,Social Justice Studies: Gender Studies ,FALSE,56
+2201.80,Social Justice Studies: African American ,FALSE,56
+2201.90,Social Justice Studies: Asian American  ,FALSE,57
+2201.91,Social Justice Studies: Native American  ,FALSE,57
+2202.00,Anthropology ,FALSE,57
+2202.20,Archaeology  ,FALSE,57
+2203.00,Ethnic Studies ,FALSE,57
+2204.00,Economics  ,FALSE,57
+2205.00,History  ,FALSE,57
+2206.00,Geography  ,FALSE,57
+2206.10,Geographic Information Systems ,TRUE,57
+2207.00,Political Science  ,FALSE,58
+2207.10,Student Government 220800 – Sociology  ,FALSE,58
+2210.00,International Studies  ,FALSE,58
+2210.10,Area Studies  ,FALSE,58
+2210.20,Global Studies  ,FALSE,58
+2299.00,Other Social Sciences ,FALSE,58
+3005.00,Custodial Services  ,TRUE,59
+3007.00,Cosmetology and Barbering  ,TRUE,59
+3008.00,Dry Cleaning ,TRUE,59
+3009.00,Travel Services and Tourism  ,TRUE,59
+3020.00,Aviation and Airport Management and Services  ,TRUE,59
+3020.10,Aviation and Airport Management  ,TRUE,59
+0309.90,Other Commercial Services  ,TRUE,60
+4901.00,"Liberal Arts and Sciences, General (Program Only)  ",FALSE,61
+4901.10,Transfer Studies (Program Only)  ,FALSE,61
+4902.00,Biological and Physical Sciences (and Mathematics) (Program Only)  ,FALSE,61
+4903.00,Humanities (Program Only)  ,FALSE,61
+4903.10,Humanities and Fine Arts (Program Only) ,FALSE,61
+4903.30,Humanities and Social Sciences (Program Only)  ,FALSE,61
+4930.09,Supervised Tutoring   ,FALSE,62
+4930.10,Career Guidance and Orientation ,FALSE,62
+4930.11,Interpersonal Skills  ,FALSE,62
+4930.12,Job Seeking/Changing Skills,FALSE,62
+4930.13,Academic Guidance ,FALSE,62
+4930.14,Study Skills   ,FALSE,62
+4930.30,"Learning Skills, Disabled  ",FALSE,62
+4930.31,"Living Skills, Disabled    ",FALSE,62
+4930.32,"Learning Skills, Learning Disabled  ",FALSE,62
+4930.33,"Learning Skills, Speech Impaired   ",FALSE,62
+4930.60,Elementary Education (Grades 1-8)  ,FALSE,62
+4930.62,Secondary Education (Grades 9-12) and GED  ,FALSE,62
+4930.72,Leadership Skills Development ,FALSE,62
+4930.84,English as a Second Language–Writing ,FALSE,62
+4930.85,English as a Second Language–Reading  ,FALSE,62
+4930.86,English as a Second Language–Speaking/Listening   ,FALSE,62
+4930.87,English as a Second Language–Integrated2 ,FALSE,62
+4930.90,Citizenship (and ESL Civics)  ,FALSE,62
+4931.00,Vocational ESL  ,TRUE,62
+4999.00,Other Interdisciplinary Studies ,FALSE,62
