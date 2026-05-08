@@ -68,6 +68,7 @@ demand_func_validate <- function(region){
 }
 
 demand_func_validate <- function(region){
+  region <- "NCV"
   pull_df <- read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Parameters") %>% suppressMessages()
   if(ncol(pull_df)==2){
     r <- pull(pull_df, 2) %>% na.exclude()
@@ -81,7 +82,22 @@ demand_func_validate <- function(region){
   pull_range <- as.character(l[which(str_detect(l, pattern = "\\d{4} \\- \\d{4}"))])
   pull_region <- paste(r[-1], collapse = " | ")
 
-  file_date <- pull(read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Cover Page"))[5] %>% suppressMessages()
+  #file_date <- pull(read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Cover Page"))[5] %>% suppressMessages()
+  file_string <- pull(read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Cover Page"))%>% suppressMessages()
+  foi <- character(0)
+  for (val in file_string){
+    if(is.na(val)){
+      print(val)
+    } else {
+      ind <- (str_split_1(val, " ")[1] %in% month.name)
+      print(ind)
+    }
+    foi <- as.logical(append(foi, ind))
+    #print(which(foi))
+  }
+
+  file_date <- file_string[which(foi)[1]]
+
   file_month <- str_split_1(file_date, " ")[1]
   file_year <- str_split_1(file_date, " ")[2]
 
