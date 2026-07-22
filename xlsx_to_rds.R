@@ -1,6 +1,47 @@
 library(tidyverse)
 library(readxl)
 
+rename_data_files <- function(data_folder = "data") {
+  files <- list.files(data_folder, pattern = "^Occupation.*?\\.[xX][lL][sS][xX]?$", full.names = TRUE)
+
+  for (f in files) {
+    if (basename(f) == ".gitkeep") next
+
+    # Read Cover Page sheet to extract Q# and Year
+    cp <- read_excel(f, sheet = "Cover Page", col_names = FALSE) %>% suppressMessages()
+    cp_text <- paste(na.omit(unlist(cp)), collapse = " ")
+
+    q_match <- str_extract(cp_text, "Q[1-4]|q[1-4]")
+    year_match <- str_extract(cp_text, "20\\d{2}")
+
+    if (!is.na(q_match) && !is.na(year_match)) {
+      suffix <- paste0("_", str_to_upper(q_match), "_", year_match)
+
+      # Replace trailing hex hash (e.g., _ae48ee4c25ae08e8) before .xlsx
+      base_name <- basename(f)
+      ext <- str_extract(base_name, "\\.[xX][lL][sS][xX]?$")
+      stem <- str_remove(base_name, "\\.[xX][lL][sS][xX]?$")
+
+      new_stem <- str_replace(stem, "_[a-fA-F0-9]{8,}$", suffix)
+
+      # If no hex hash matched, append suffix if not already present
+      if (new_stem == stem && !str_detect(stem, paste0(suffix, "$"))) {
+        new_stem <- paste0(stem, suffix)
+      }
+
+      new_path <- file.path(data_folder, paste0(new_stem, ext))
+
+      if (f != new_path) {
+        file.rename(f, new_path)
+        print(paste("Renamed raw file:", base_name, "->", paste0(new_stem, ext)))
+      }
+    }
+  }
+}
+
+# Automatically rename raw files in data/ before processing
+rename_data_files("data")
+
 demand_hires <- list.files(
   path = "data",  # Assuming the files are in a "data" folder
   pattern = "^Occupation.*?(NCV|SCV|CVML|California).*\\.xlsx$",
