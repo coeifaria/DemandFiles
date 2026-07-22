@@ -42,6 +42,7 @@ demand_func_df <- function(region) {
   if (length(file_target) == 0) {
     stop(paste("No matching Excel file found for region:", region))
   }
+  file_target <- file_target[1] # Ensure single path string for read_excel
   read_excel(file_target, sheet = "Occs") %>%
     na.omit() %>%
     fix_columns() %>%
@@ -53,6 +54,7 @@ demand_func_validate <- function(region) {
   if (length(file_target) == 0) {
     stop(paste("No matching Excel file found for region:", region))
   }
+  file_target <- file_target[1] # Ensure single path string for read_excel
 
   pull_df <- read_excel(file_target, sheet = "Parameters") %>% suppressMessages()
   if (ncol(pull_df) == 2) {
@@ -145,18 +147,22 @@ print(paste("Saved RDS file:", demand_file_name))
 old_folder_name <- "data"
 new_folder_name <- paste0("data_", demand_file_name_saving)
 
-# 1. Check if the source folder actually exists
+# Check if the source folder actually exists
 if (dir.exists(old_folder_name)) {
 
-  # 2. Check if the new folder name is already in use
   if (!dir.exists(new_folder_name)) {
-
-    # 3. If everything is clear, rename the folder
     file.rename(from = old_folder_name, to = new_folder_name)
     print(paste("Folder successfully renamed from", old_folder_name, "to", new_folder_name))
-
   } else {
-    print(paste("Notice: A folder named '", new_folder_name, "' already exists."))
+    # Move raw files from data/ into existing archive folder
+    files_to_move <- list.files(old_folder_name, full.names = TRUE)
+    for (f in files_to_move) {
+      if (basename(f) != ".gitkeep") {
+        file.copy(f, file.path(new_folder_name, basename(f)), overwrite = TRUE)
+        file.remove(f)
+      }
+    }
+    print(paste("Files archived into existing folder:", new_folder_name))
   }
 
 } else {
