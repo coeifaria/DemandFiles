@@ -4,7 +4,7 @@ library(readxl)
 demand_hires <- list.files(
   path = "data",  # Assuming the files are in a "data" folder
   pattern = "^Occupation.*?(NCV|SCV|CVML|California).*\\.xlsx$",
-  full.names = T,
+  full.names = TRUE,
   ignore.case = TRUE
 )
 
@@ -17,16 +17,16 @@ find_problematic_columns <- function(df, pattern) {
   return(na.omit(names(df)[cols_with_issues]))
 }
 
-fix_columns <- function(df){
+fix_columns <- function(df) {
   removeables <- c("<10", "Insf. Data")
-  for (remove_me in removeables){
+  for (remove_me in removeables) {
     fix_us <- find_problematic_columns(df, remove_me)
-    for (columns in fix_us){
+    for (columns in fix_us) {
       new_column <- df[[columns]] %>%
         na_if(remove_me) %>%
         as.numeric() %>%
         replace_na(0)
-      if(remove_me=="<10"){
+      if (remove_me == "<10") {
         new_column <- round(new_column)
       } else {
         new_column <- round(new_column, 2)
@@ -38,62 +38,44 @@ fix_columns <- function(df){
 }
 
 demand_func_df <- function(region) {
-  read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Occs") %>% na.omit() %>% fix_columns() %>% suppressMessages() #%>% process_dataframe() #%>% demand_func() #%>% not_in_selected_region() #%>% remove_added_rows()
+  file_target <- demand_hires[str_detect(demand_hires, pattern = region)]
+  if (length(file_target) == 0) {
+    stop(paste("No matching Excel file found for region:", region))
+  }
+  read_excel(file_target, sheet = "Occs") %>%
+    na.omit() %>%
+    fix_columns() %>%
+    suppressMessages()
 }
 
-date_match <- paste0(lubridate::month(1:12, label = T, abbr = F), " ", year(Sys.Date()))
+demand_func_validate <- function(region) {
+  file_target <- demand_hires[str_detect(demand_hires, pattern = region)]
+  if (length(file_target) == 0) {
+    stop(paste("No matching Excel file found for region:", region))
+  }
 
-demand_func_validate <- function(region){
-  r <- pull(read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Parameters"), 2)%>% suppressMessages()  %>% na.exclude()
-  l <- pull(read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Parameters"), 1)%>% suppressMessages() %>%  na.exclude()
-
-  pull_type <- as.character(last(l))
-  pull_range <- as.character(l[which(str_detect(l, pattern = "\\d{4} \\- \\d{4}"))])
-  pull_region <- paste(r[-1], collapse = " | ")
-
-  file_date_s1 <- pull(read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Cover Page"))
-  file_date <- file_date_s1[which(file_date_s1 %in% date_match)]
-  file_month <- str_split_1(file_date, " ")[1]
-  file_year <- str_split_1(file_date, " ")[2]
-
-  version <- list(
-    region = region,
-    pull_type = pull_type,
-    pull_range = pull_range,
-    pull_region = pull_region,
-    file_month = file_month,
-    file_year = file_year
-  )
-  return(version)
-}
-
-demand_func_validate <- function(region){
-  region <- "NCV"
-  pull_df <- read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Parameters") %>% suppressMessages()
-  if(ncol(pull_df)==2){
+  pull_df <- read_excel(file_target, sheet = "Parameters") %>% suppressMessages()
+  if (ncol(pull_df) == 2) {
     r <- pull(pull_df, 2) %>% na.exclude()
     l <- pull(pull_df, 1) %>% na.exclude()
   } else {
     l <- pull(pull_df, 1) %>% na.exclude()
-    r <- ifelse(region=="California", "ca", str_to_lower(region))
+    r <- ifelse(region == "California", "ca", str_to_lower(region))
   }
 
   pull_type <- as.character(last(l))
   pull_range <- as.character(l[which(str_detect(l, pattern = "\\d{4} \\- \\d{4}"))])
   pull_region <- paste(r[-1], collapse = " | ")
 
-  #file_date <- pull(read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Cover Page"))[5] %>% suppressMessages()
-  file_string <- pull(read_excel(demand_hires[str_detect(demand_hires, pattern = region)], sheet = "Cover Page"))%>% suppressMessages()
+  file_string <- pull(read_excel(file_target, sheet = "Cover Page")) %>% suppressMessages()
   foi <- character(0)
-  for (val in file_string){
-    if(is.na(val)){
-      print(val)
+  for (val in file_string) {
+    if (is.na(val)) {
+      ind <- FALSE
     } else {
       ind <- (str_split_1(val, " ")[1] %in% month.name)
-      print(ind)
     }
     foi <- as.logical(append(foi, ind))
-    #print(which(foi))
   }
 
   file_date <- file_string[which(foi)[1]]
@@ -101,15 +83,14 @@ demand_func_validate <- function(region){
   file_month <- str_split_1(file_date, " ")[1]
   file_year <- str_split_1(file_date, " ")[2]
 
-  version <-
-    list(
-      region = ifelse(region=="California", "ca", str_to_lower(region)),
-      pull_region = pull_region,
-      pull_type = pull_type,
-      pull_range = pull_range,
-      file_month = file_month,
-      file_year = file_year
-    )
+  version <- list(
+    region = ifelse(region == "California", "ca", str_to_lower(region)),
+    pull_region = pull_region,
+    pull_type = pull_type,
+    pull_range = pull_range,
+    file_month = file_month,
+    file_year = file_year
+  )
   n_version <- list(version)
   names(n_version) <- region
   return(n_version)
@@ -118,8 +99,8 @@ demand_func_validate <- function(region){
 all_demand_regions <- c("NCV", "SCV", "CVML", "California")
 ncv_demand <- demand_func_df(all_demand_regions[1])
 scv_demand <- demand_func_df(all_demand_regions[2])
-cvml_demand <-demand_func_df(all_demand_regions[3])
-ca_demand <-  demand_func_df(all_demand_regions[4])
+cvml_demand <- demand_func_df(all_demand_regions[3])
+ca_demand <- demand_func_df(all_demand_regions[4])
 
 demand_files <- list()
 demand_files[["version"]] <- list()
@@ -129,21 +110,22 @@ overall_pull_range <- vector("character")
 overall_file_month <- vector("character")
 overall_file_year <- vector("character")
 
-for(regions in all_demand_regions){
-  pull_type_i <- flatten(demand_func_validate(regions))[["pull_type"]]
-  pull_range_i <- flatten(demand_func_validate(regions))[["pull_range"]]
-  file_month_i <- flatten(demand_func_validate(regions))[["file_month"]]
-  file_year_i <- flatten(demand_func_validate(regions))[["file_year"]]
+for (regions in all_demand_regions) {
+  v_info <- demand_func_validate(regions)[[regions]]
+  pull_type_i  <- v_info[["pull_type"]]
+  pull_range_i <- v_info[["pull_range"]]
+  file_month_i <- v_info[["file_month"]]
+  file_year_i  <- v_info[["file_year"]]
 
-  overall_pull_type <-  unique(c(overall_pull_type, pull_type_i))
+  overall_pull_type  <- unique(c(overall_pull_type, pull_type_i))
   overall_pull_range <- unique(c(overall_pull_range, pull_range_i))
-  overall_file_month <-  unique(c(overall_file_month, file_month_i))
-  overall_file_year <-  unique(c(overall_file_year, file_year_i))
+  overall_file_month <- unique(c(overall_file_month, file_month_i))
+  overall_file_year  <- unique(c(overall_file_year, file_year_i))
   rm(pull_type_i, pull_range_i, file_month_i, file_year_i)
 }
 
-version <- list(overall = c(paste0(overall_file_month," ", overall_file_year), overall_pull_type, overall_pull_range))
-for(regions in all_demand_regions){
+version <- list(overall = c(paste0(overall_file_month, " ", overall_file_year), overall_pull_type, overall_pull_range))
+for (regions in all_demand_regions) {
   version <- c(version, demand_func_validate(regions))
 }
 
@@ -157,7 +139,8 @@ demand_file_name_saving <- str_remove_all(demand_files[["version"]][["overall"]]
 demand_file_name <- paste0("demand_files_", demand_file_name_saving, ".rds")
 saveRDS(demand_files, demand_file_name)
 
-demand_files[["version"]][["overall"]][1]
+print(paste("Saved RDS file:", demand_file_name))
+
 # Define the old and new folder names
 old_folder_name <- "data"
 new_folder_name <- paste0("data_", demand_file_name_saving)
@@ -173,10 +156,12 @@ if (dir.exists(old_folder_name)) {
     print(paste("Folder successfully renamed from", old_folder_name, "to", new_folder_name))
 
   } else {
-    print(paste("Error: A folder named '", new_folder_name, "' already exists."))
+    print(paste("Notice: A folder named '", new_folder_name, "' already exists."))
   }
 
 } else {
   print(paste("Error: The source folder '", old_folder_name, "' does not exist."))
 }
-dir.create("data")
+
+dir.create("data", showWarnings = FALSE)
+file.create("data/.gitkeep")
